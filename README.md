@@ -27,3 +27,23 @@ sudo rmmod rtbth
 ### Installation: ###
 
 [Ubuntu and derivatives](https://launchpad.net/~blaze/+archive/ubuntu/rtbth-dkms)
+
+## Manual build/install for openSuse  
+
+``` sh
+#install requireed packages:
+sudo zypper install kernel-devel dkms
+
+#copy the source folder to /usr/src/ to be visible to dkms
+sudo cp -rf ./rtbth /usr/src/
+
+#build and install the module using dkms
+sudo dkms add -m rtbth/dkms
+sudo dkms build -m rtbth/dkms
+sudo dkms install -m rtbth/dkms
+
+#load the module
+sudo modprobe rtbth
+sudo rfkill unblock bluetooth
+hcitool dev # check
+```
