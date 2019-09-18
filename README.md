@@ -35,7 +35,7 @@ sudo rmmod rtbth
 sudo zypper install kernel-devel dkms
 
 #copy the source folder to /usr/src/ to be visible to dkms
-sudo cp -rf ./rtbth /usr/src/
+sudo cp -rf ./rtbth-dkms /usr/src/
 
 #build and install the module using dkms
 sudo dkms add -m rtbth/dkms
